@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="game_title">Football Career Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="game-wrapper">
+        <div id="start-screen" class="game-section">
+            <h1 data-i18n="game_title">Football Career Simulator</h1>
+            <div class="input-group">
+                <label for="player-name" data-i18n="player_name_label">Nama Pemain:</label>
+                <input type="text" id="player-name" placeholder="Masukkan nama Anda" data-i18n-placeholder="player_name_placeholder">
+            </div>
+            <div class="input-group">
+                <label for="player-position" data-i18n="player_position_label">Posisi:</label>
+                <select id="player-position">
+                    <option value="Striker" data-i18n="position_striker">Striker</option>
+                    <option value="Midfielder" data-i18n="position_midfielder">Gelandang</option>
+                    <option value="Defender" data-i18n="position_defender">Bek</option>
+                    <option value="Goalkeeper" data-i18n="position_goalkeeper">Kiper</option>
+                </select>
+            </div>
+            <div class="button-group">
+                <button id="start-game-btn" class="main-button" data-i18n="start_game_btn">Mulai Petualangan</button>
+                <button id="load-game-btn" class="secondary-button" data-i18n="load_game_btn">Muat Game</button>
+            </div>
+            <button id="change-lang-btn" class="tertiary-button" data-i18n="change_lang_btn">Change Language (EN)</button>
+        </div>
+
+        <div id="game-screen" class="game-section hidden">
+            <div id="header-bar">
+                <div class="player-info">
+                    <p><strong data-i18n="player_name_display">Nama:</strong> <span id="display-name"></span></p>
+                    <p><strong data-i18n="player_position_display">Posisi:</strong> <span id="display-position"></span></p>
+                    <p><strong data-i18n="player_age_display">Umur:</strong> <span id="display-age"></span></p>
+                </div>
+                <div class="game-actions">
+                    <button id="save-game-btn" class="action-button" data-i18n="save_game_btn"><i class="fas fa-save"></i> Simpan</button>
+                    <button id="change-lang-game-btn" class="action-button" data-i18n="change_lang_btn"><i class="fas fa-language"></i> EN</button>
+                </div>
+            </div>
+
+            <div id="main-content">
+                <div id="story-panel" class="panel">
+                    <p id="story-text"></p>
+                    <div id="choices-container">
+                        </div>
+                </div>
+
+                <div id="stats-panel" class="panel">
+                    <h2 data-i18n="stats_title">Statistik Karir</h2>
+                    <p><strong data-i18n="player_goals_display">Goals:</strong> <span id="display-goals">0</span></p>
+                    <p><strong data-i18n="player_assists_display">Assists:</strong> <span id="display-assists">0</span></p>
+                    <p><strong data-i18n="player_appearances_display">Penampilan:</strong> <span id="display-appearances">0</span></p>
+                    <p><strong data-i18n="player_clean_sheets_display">Clean Sheets:</strong> <span id="display-clean-sheets">0</span></p>
+                    <p><strong data-i18n="player_mvps_display">MVP Awards:</strong> <span id="display-mvps">0</span></p>
+                    <p><strong data-i18n="player_rating_display">Rating Rata-rata:</strong> <span id="display-rating">7.0</span></p>
+                    <p><strong data-i18n="player_skill_display">Skill Level:</strong> <span id="display-skill">Rendah</span></p>
+
+                    <h3 data-i18n="trophies_title">Trophy</h3>
+                    <p><strong data-i18n="player_ucl_display">UCL:</strong> <span id="display-ucl">0</span></p>
+                    <p><strong data-i18n="player_domestic_display">Domestik:</strong> <span id="display-domestic">0</span></p>
+                    <p><strong data-i18n="player_cup_display">Piala Nasional:</strong> <span id="display-cup">0</span></p>
+                </div>
+            </div>
+
+            <div id="footer-actions">
+                <button id="next-year-btn" class="main-button hidden" data-i18n="next_year_btn">Lanjut Tahun</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="data/game_data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

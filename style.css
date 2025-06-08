@@ -1,0 +1,322 @@
+:root {
+    --primary-bg: #2c3e50; /* Dark blue */
+    --secondary-bg: #34495e; /* Slightly lighter blue */
+    --panel-bg: #44607a; /* Even lighter blue for panels */
+    --text-color: #ecf0f1; /* Light text */
+    --accent-color-1: #e67e22; /* Orange accent */
+    --accent-color-2: #2ecc71; /* Green success */
+    --button-primary: #27ae60; /* Green button */
+    --button-secondary: #3498db; /* Blue button */
+    --button-tertiary: #9b59b6; /* Purple for language */
+    --font-main: 'Roboto', sans-serif;
+    --font-heading: 'Orbitron', sans-serif;
+    --border-radius: 8px;
+    --spacing-unit: 15px;
+}
+
+body {
+    font-family: var(--font-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-bg), #1a252f);
+    color: var(--text-color);
+    margin: 0;
+    padding: var(--spacing-unit);
+    box-sizing: border-box;
+    overflow-y: auto; /* Allow scrolling on smaller screens */
+}
+
+#game-wrapper {
+    background-color: var(--secondary-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    padding: var(--spacing-unit) * 2;
+    width: 100%;
+    max-width: 900px; /* Wider for better game layout */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-unit) * 1.5;
+    min-height: 700px; /* Ensure enough height for content */
+}
+
+/* --- General Elements --- */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--accent-color-1);
+    text-align: center;
+    margin-bottom: var(--spacing-unit);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+strong {
+    color: var(--accent-color-2);
+}
+
+.input-group {
+    margin-bottom: var(--spacing-unit) * 1.5;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--accent-color-2);
+}
+
+input[type="text"], select {
+    width: calc(100% - 20px);
+    padding: 12px;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    font-size: 1em;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--accent-color-1);
+}
+
+/* --- Buttons --- */
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 5px; /* Add some margin for button groups */
+}
+
+button i {
+    font-size: 1.1em;
+}
+
+.main-button {
+    background-color: var(--button-primary);
+    color: white;
+}
+.main-button:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    background-color: var(--button-secondary);
+    color: white;
+}
+.secondary-button:hover {
+    background-color: #5dade2;
+    transform: translateY(-2px);
+}
+
+.tertiary-button {
+    background-color: var(--button-tertiary);
+    color: white;
+    margin-top: var(--spacing-unit);
+}
+.tertiary-button:hover {
+    background-color: #af7ac5;
+    transform: translateY(-2px);
+}
+
+.action-button {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    border: 1px solid var(--accent-color-1);
+    margin: 0 5px;
+}
+.action-button:hover {
+    background-color: var(--accent-color-1);
+    color: var(--primary-bg);
+}
+
+/* --- Game Sections --- */
+.game-section {
+    width: 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#start-screen {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#start-screen .input-group {
+    width: 70%;
+    max-width: 400px;
+}
+
+#start-screen .button-group {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-unit);
+    margin-top: var(--spacing-unit);
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+/* --- Game Screen Layout --- */
+#game-screen {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-unit) * 1.5;
+}
+
+#header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-bg);
+    padding: var(--spacing-unit);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    flex-wrap: wrap; /* Allow info and actions to wrap */
+}
+
+.player-info p {
+    margin: 2px 0;
+    font-size: 0.95em;
+}
+
+.game-actions {
+    display: flex;
+    gap: var(--spacing-unit) / 2;
+    flex-wrap: wrap;
+}
+
+#main-content {
+    display: flex;
+    gap: var(--spacing-unit) * 1.5;
+    flex: 1; /* Allow panels to take remaining space */
+}
+
+.panel {
+    background-color: var(--panel-bg);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-unit) * 1.5;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto; /* Enable scrolling for long content */
+}
+
+#story-panel {
+    flex: 2; /* Story takes more width */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push choices to bottom if story is short */
+    min-height: 350px; /* Ensure minimum height */
+}
+
+#story-text {
+    font-size: 1.2em;
+    margin-bottom: var(--spacing-unit);
+    font-style: italic;
+    text-align: center;
+    background-color: var(--primary-bg);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#choices-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto; /* Push choices to the bottom of the panel */
+}
+
+#choices-container button {
+    width: 100%;
+    background-color: var(--accent-color-1);
+    color: white;
+}
+#choices-container button:hover {
+    background-color: #f39c12;
+}
+
+
+#stats-panel {
+    flex: 1; /* Stats takes less width */
+    min-width: 250px; /* Minimum width to prevent squishing */
+}
+
+#stats-panel h2, #stats-panel h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-unit);
+    font-size: 1.3em;
+}
+
+#stats-panel p {
+    margin: 5px 0;
+}
+
+#footer-actions {
+    text-align: center;
+    margin-top: var(--spacing-unit);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    #game-wrapper {
+        padding: var(--spacing-unit);
+        min-height: 95vh;
+    }
+
+    #header-bar {
+        flex-direction: column;
+        gap: var(--spacing-unit);
+        text-align: center;
+    }
+
+    .game-actions {
+        justify-content: center;
+        width: 100%;
+    }
+
+    #main-content {
+        flex-direction: column; /* Stack panels vertically */
+    }
+
+    #story-panel, #stats-panel {
+        min-height: auto; /* Remove min-height for stacked layout */
+    }
+    #story-panel {
+        flex: none; /* Remove flex sizing */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    button {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+    input[type="text"], select {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    #start-screen .input-group {
+        width: 90%;
+    }
+}
